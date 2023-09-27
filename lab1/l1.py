@@ -1,7 +1,7 @@
 import random
 from math import ceil, sqrt
 
-
+#быстрое возведение в степень по модулю
 def module(a, x, p):
    y = 1
    s = a
@@ -14,18 +14,7 @@ def module(a, x, p):
 
    return y
 
-def gcd(a, b):
-   if (a<b):
-      print("Bad imput data!")
-      return -1
-   
-   while(b != 0):
-      r = a % b
-      a = b
-      b = r
-      
-   return a
-
+#обобщенный алгоритм Евклида
 def general_gcd(a, b):
    if (a<b):
       print("Bad imput data!")
@@ -40,6 +29,7 @@ def general_gcd(a, b):
       V = T
    return U
 
+#проверяет простое чило или нет
 def is_prime(a):
    if (a <= 1):
       return False
@@ -52,12 +42,14 @@ def is_prime(a):
    else:
       return True
 
+#возвращает рандомное простое число
 def rand_prime(from_, to):
    while True:
       tmp = random.randint(from_, to)
       if is_prime(tmp):
          return tmp
-      
+
+
 def rand_p_q_g():
    while True:
       q = rand_prime(2, 10**9)
@@ -85,7 +77,7 @@ def diffie_hellman():
          "\nОткрытые ключи: Ya = ", Ya, "Yb = ", Yb,
          "\n Zab = ", Zab, "Zba = ", Zba)
 
-
+# Шаг младенца, шаг великана  y = a^x mod p 
 def mladen_velik(y, a, p):
    m = k = ceil(sqrt(p))
    print(m)
@@ -111,3 +103,34 @@ def mladen_velik(y, a, p):
 
 print(mladen_velik(16, 3, 17))
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#алгоритм Евклида
+def gcd(a, b):
+   if (a<b):
+      print("Bad imput data!")
+      return -1
+   
+   while(b != 0):
+      r = a % b
+      a = b
+      b = r
+      
+   return a
+
+print(gcd(130, 32))
+print(general_gcd(130, 32))
