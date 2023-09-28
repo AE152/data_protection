@@ -80,7 +80,6 @@ def diffie_hellman():
 # Шаг младенца, шаг великана  y = a^x mod p 
 def mladen_velik(y, a, p):
    m = k = ceil(sqrt(p))
-   print(m)
    a_j_y = []
    a_im = []
 
@@ -88,20 +87,21 @@ def mladen_velik(y, a, p):
       i = j + 1
       a_j_y.append((a**j * y) % p)
       a_im.append((a**(i*m)) % p) 
-      print(a_j_y[j], " ", a_im[j])
    for i in range(0, m):
       if a_im[i] in a_j_y:
          j = a_j_y.index(a_im[i])
-         print(a_j_y.index(a_im[i]))
          i+=1
          break
-   print("\n",i," ", j)
    return(i*m-j)%p
    
 
+print(module(13,5,11))
 
+print(general_gcd(28,19))
 
-print(mladen_velik(16, 3, 17))
+diffie_hellman()
+
+print(mladen_velik(10, 13, 11))
 
 
 
